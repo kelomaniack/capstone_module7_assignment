@@ -6,7 +6,7 @@ class ThingImagesController < ApplicationController
   before_action :get_image, only: [:image_things]
   before_action :get_thing_image, only: [:update, :destroy]
   before_action :authenticate_user!, only: [:create, :update, :destroy]
-  after_action :verify_authorized, except: [:subjects]
+  after_action :verify_authorized, except: [:subjects,:find_things]
   #after_action :verify_policy_scoped, only: [:linkable_things]
   before_action :origin, only: [:subjects]
 
@@ -19,6 +19,22 @@ class ThingImagesController < ApplicationController
     authorize @image, :get_things?
     @thing_images=@image.thing_images.prioritized.with_name
     render :index 
+  end
+
+  def find_things
+    if params[:image_id]
+      thingimages = ThingImage.where(:image_id => params[:image_id])
+      @things = []
+      thingimages.map {|ti| @things.push(ti.thing) }
+      if @things
+        @things
+        render "things/index"
+      else
+        render :nothing => true
+      end
+    else
+      render :nothing => true
+    end
   end
 
   def linkable_things

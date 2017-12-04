@@ -78,14 +78,14 @@ div.area-pane.expanded div.tab-content {
   height: 93vh;
 }
 
-div.area-pane div.tab-pane ul.items {
+div.area-pane div.tab-pane ul.items, div.area-pane ul.items {
   margin-top: 5px;
   padding-left: 5px;
 }
-div.area-pane div.tab-pane ul.items span.id {
+div.area-pane div.tab-pane ul.items span.id, div.area-pane ul.items span.id {
   display: none;
 }
-div.area-pane div.tab-pane ul.items img {
+div.area-pane div.tab-pane ul.items img, div.area-pane ul.items img {
   width: 50px;
 }
 div.area-pane.expanded div.tab-pane ul.items img {

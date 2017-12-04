@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     get 'geocoder/addresses' => "geocoder#addresses"
     get 'geocoder/positions' => "geocoder#positions"
     get 'subjects' => "thing_images#subjects"
+    get 'image_things' => "thing_images#images_and_things"
+    get 'find_things' => "thing_images#find_things"
   end      
 
   get "/client-assets/:name.:format", :to => redirect("/client/client-assets/%{name}.%{format}")

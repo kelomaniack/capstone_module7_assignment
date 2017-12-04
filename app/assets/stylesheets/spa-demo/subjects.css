@@ -22,7 +22,7 @@ div.things-area {
 }
 
 /*********** subjects view ********/
-div.subjects-page {
+div.subjects-page, div.image-things-page {
   padding-left: 0px;
   padding-right: 0px;
 }
